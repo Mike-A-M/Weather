@@ -9,16 +9,16 @@
 
 <h1>Weather App</h1>
 <div class="container">
-    <input type="text" id="city-input" placeholder="Enter city name">
-    <button id="search-btn">Search</button>
+    <input type="text" id="city-input" placeholder="Enter City Zip Code">
+    <button id="zipcode" onclick="zipCodeToGlobal()">Search</button>
+    <script src="main.js"></script> 
 
-    <div id="weather-result">
-        <div class = "lookup">
-            <!--- all javascript function to get weather data and display it here -->
-        </div>
+    <div id = "coordinates">
+        <h2>Geo Position</h2>
+        <p></p>
     </div>
 
-    <div class = "temp">
+     <div class = "temp">
         <h2>Temperature: <span id="temperature"></span></h2>
         <!-- call javascript function to get temperature data and display it here -->
     </div>
