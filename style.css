@@ -1,0 +1,10 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  grid-template-rows: 3fr;
+  
+}
+
