@@ -3,40 +3,40 @@
 // https://api.thecatapi.com/v1/images/search
 // use above for one imgage
 // api key = live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY
+//change the limit to however many images to use
 
-window.onload = function () {
-    getCat();
+
+const url = `https://api.thecatapi.com/v1/images/search?limit=20`;
+const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+
+async function getRandomCatImage() {
+  try {
+    // A public endpoint URL to get a random cat image
+    const response = await fetch("https://api.thecatapi.com/v1/images/search");
+    const data = await response.json(); // API returns an array of image objects
+
+    if (data && data.length > 0) {
+      const imageUrl = data[0].url;
+      console.log("Random cat image URL:", imageUrl);
+
+      // Example of how to add it to a webpage (assuming a div with id="cat-container")
+      const container = document.querySelector("cat_image");
+      const img = document.createElement("img");
+      img.src = imageUrl;
+      container.appendChild(img);
+    }
+  } catch (error) {
+    console.error("Error fetching cat image:", error);
+  }
 }
 
-async function getCat () {
-
-    const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY";
-
-    const url = `https://api.thecatapi.com/v1/breeds`;
-
-
-    const catFinder = await fetch(url, {
-      headers: {
-      "api-key": "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
-      }
-    }
-   )
-    
-    let storedBreeds = catFinder[1]
-    let catPic = storedBreeds.image.url
- 
-    
-  }
-
-
-
-
-
+// Call the function to fetch an image
 
 
 
 // Add an event listener for the 'click' event
 myButton.addEventListener('click', zipCodeToGlobal());
+
 
 
 // Global Coordinates from Zipcode
