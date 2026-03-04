@@ -6,12 +6,17 @@
     <title>Weather</title> 
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
-    <style></style>
+
 </head>
 
 <h1>Candy's Cool Cat Weather App</h1>
 
 <div class="container">
+    <div>
+        <img id = "cat_image"></img>
+    </div>
+    
+    </div>
     <div class = "positon">
         <label for = "zipcode">Enter Zipcode</label>
         <input type = "text" id = "zipcode" placeholder = "Your Zipe Code">
@@ -21,8 +26,8 @@
         <h4 id = "longitude"></h3>
     </div>
 
-     <div class = "temp">
-        <h2>Temperature: <span id="temperature"></span></h2>
+     <div class = "temp" id="tempcat">
+        <h2 >Temperature: <span id="temperature"></span></h2>
         <!-- call javascript function to get temperature data and display it here -->
     </div>
     <div class = "conditions">

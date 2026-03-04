@@ -10,10 +10,25 @@ window.onload = function () {
 
 async function getCat () {
 
-const url = `https://api.thecatapi.com/v1/images/search?`;
-const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+    const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY";
 
-}
+    const url = `https://api.thecatapi.com/v1/breeds`;
+
+
+    const catFinder = await fetch(url, {
+      headers: {
+      "api-key": "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+      }
+    }
+   )
+    
+    let storedBreeds = catFinder[1]
+    let catPic = storedBreeds.image.url
+ 
+    
+  }
+
+
 
 
 
