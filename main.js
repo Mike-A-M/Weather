@@ -10,25 +10,9 @@ window.onload = function () {
 
 async function getCat () {
 
-const url = `https://api.thecatapi.com/v1/images/search?limit=1`;
+const url = `https://api.thecatapi.com/v1/images/search?`;
 const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
 
- fetch(url,{headers: {
-      'x-api-key': api_key
-    }})
- .then((response) => {
-   return response.json();
- })
-.then((data) => {
-  let imagesData = data;
-  imagesData.map(function(imageData) {
-    
-    //use the url from the image object
-    image = `${imageData.url}`;
-  }
-  )
-})
-document.body.style.background = image;
 }
 
 
