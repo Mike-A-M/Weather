@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title> 
     <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
 </head>
 
-<h1>Weather App</h1>
-<div class="container">
-    <label for = "zipcode">Enter Zipcode</label>
-    <input type = "text" id = "zipcode" placeholder = "Your Zipe Code">
-    <button onclick="zipCodeToGlobal()">Search</button>
-    <script src="main.js"></script> 
+<h1>Candy's Cool Cat Weather App</h1>
 
-    <div id = "coordinates">
+<div class="container">
+    <div class = "positon">
+        <label for = "zipcode">Enter Zipcode</label>
+        <input type = "text" id = "zipcode" placeholder = "Your Zipe Code">
+        <button onclick="zipCodeToGlobal()">Search</button>
         <h2>Geo Position</h2>
-        <p></p>
+        <h4 id = "latitude"></h3>
+        <h4 id = "longitude"></h3>
     </div>
 
      <div class = "temp">
