@@ -15,48 +15,53 @@
 
     <div class = "positon">
         <label for = "zipcode">Enter Zipcode</label>
-        <input type = "text" id = "zipcode" placeholder = "Your Zipe Code">
-        <button onclick="zipCodeToGlobal()">Search</button>
+        <input type = "text" id = "zipcode" placeholder = "Your Zip Code">
+        <p></p>
+        <button id = "myButton" onclick="zipCodeToGlobal()">Search</button>
         <h2>Geo Position</h2>
         <h4 id = "latitude"></h3>
         <h4 id = "longitude"></h3>
     </div>
 
+    <div id ="cat_image"> 
+        <h2></h2>
+    </div>
+    
      <div class = "temp">
-        <script src="main.js"></script>
-        </div>
-
-         
-
-
-
         <h2 >Temperature: <span id="temperature"></span></h2>
         <!-- call javascript function to get temperature data and display it here -->
     </div>
+
     <div class = "conditions">
         <h2>Conditions: <span id="conditions"></span></h2>
         <!-- call javascript function to get conditions data and display it here -->
     </div>
+
     <div class = "humidity">
         <h2>Humidity: <span id="humidity"></span></h2>
         <!--all javascript function to get humidity data and display it here -->
     </div>
+
     <div class = "wind">
         <h2>Wind Speed: <span id="wind-speed"></span></h2>
         <!-- call javascript function to get wind speed data and display it here -->
     </div>
+    
     <div class = "pressure">
         <h2>Pressure: <span id="pressure"></span></h2>
         <!-- call javascript function to get pressure data and display it here -->
     </div>
+
     <div class = "visibility">
         <h2>Visibility: <span id="visibility"></span></h2>
         <!-- call javascript function to get visibility data and display it here -->   
     </div>
+
     <div class = "moon-phase"> </div>  
         <h2>Moon Phase: <span id="moon-phase"></span></h2>
         <!-- call javascript function to get moon phase data and display it here -->   
     </div>
+
     <div id = "cat_image">
         <image id = "cat_image"></image>
     </div>

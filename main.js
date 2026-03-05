@@ -1,30 +1,40 @@
 
 // Get random cat images 
 // https://api.thecatapi.com/v1/images/search
-// use above for one imgage
 // api key = live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY
 //change the limit to however many images to use
 
 
-const url = `https://api.thecatapi.com/v1/images/search?limit=20`;
-const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+
 
 async function getRandomCatImage() {
   try {
+    // API KEY
+    const url = `https://api.thecatapi.com/v1/images/search?limit=20`;
+    const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+
     // A public endpoint URL to get a random cat image
     const response = await fetch("https://api.thecatapi.com/v1/images/search");
     const data = await response.json(); // API returns an array of image objects
+    
 
     if (data && data.length > 0) {
-      const imageUrl = data[0].url;
-      console.log("Random cat image URL:", imageUrl);
 
-      // Example of how to add it to a webpage (assuming a div with id="cat-container")
-      const container = document.querySelector("cat_image");
-      const img = document.createElement("img");
-      img.src = imageUrl;
-      container.appendChild(img);
+      // Select 1 array image, index 0
+      const imageUrl = data[0].url;
+      
+      // insert image into HTML
+      let container = document.getElementById("cat_image")
+      const newImage = document.createElement('img');
+      newImage.src = imageUrl; 
+      container.replaceWith(newImage);
+
+      // format image
+      newImage.width = 300;
+      newImage.height = 300;
+      newImage.style.borderRadius = '20px';
     }
+
   } catch (error) {
     console.error("Error fetching cat image:", error);
   }
@@ -35,7 +45,7 @@ async function getRandomCatImage() {
 
 
 // Add an event listener for the 'click' event
-myButton.addEventListener('click', zipCodeToGlobal());
+// yButton.addEventListener('click', zipCodeToGlobal());
 
 
 
@@ -62,8 +72,8 @@ async function zipCodeToGlobal () {
 
 }
 
+ getRandomCatImage()
 
-const myButton = document.getElementById("zipcode");
 
 
 
