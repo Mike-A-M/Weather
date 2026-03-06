@@ -4,9 +4,6 @@
 // api key = live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY
 //change the limit to however many images to use
 
-
-
-
 async function getRandomCatImage() {
   try {
     // API KEY
@@ -29,24 +26,18 @@ async function getRandomCatImage() {
       newImage.src = imageUrl; 
       container.replaceWith(newImage);
 
+
       // format image
       newImage.width = 300;
       newImage.height = 300;
       newImage.style.borderRadius = '20px';
+      newImage.style.opacity = "0.6";
     }
 
   } catch (error) {
     console.error("Error fetching cat image:", error);
   }
 }
-
-// Call the function to fetch an image
-
-
-
-// Add an event listener for the 'click' event
-// yButton.addEventListener('click', zipCodeToGlobal());
-
 
 
 // Global Coordinates from Zipcode
@@ -70,23 +61,37 @@ async function zipCodeToGlobal () {
     const latititude = geo.lat;
     document.getElementById("latitude").textContent = `${latititude} Degrees`
 
+    pullForcast (latititude, longtitude)
+
 }
-
- getRandomCatImage()
-
-
-
-
-
 
 
 // Look Up City in Weather API - 
 // api is 85977e055851755123d0bcc6806eabf4
 // https://openweathermap.org/current?collection=current_forecast
 // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-async function pullForcast (zipcode){
-  
+// https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
+async function pullForcast (lat, lon) {
+    try {
+    // API KEY
+    const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+    // URL
+    const url = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat + "lon="+ lon + "&appid=" + api_key 
+    
+
+    // get the current conditons
+    const response = await fetch(url)
+    const data = await response.json(); // returns the conditons
+    alert ("Forecast Ready")
+    }
+    catch (error) {alert("Error Getting", error);}
+
+
 }
 
 
 
+
+// Fetch random kitty Image
+ getRandomCatImage()
