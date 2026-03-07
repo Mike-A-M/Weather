@@ -72,21 +72,47 @@ async function zipCodeToGlobal () {
 // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
-async function pullForcast (lat, lon) {
+async function pullForcast (latitude, longtitude) {
     try {
     // API KEY
-    const api_key = "live_8kNZp5dDR4NQRQOEq4UgoF5EejH2W6xfmwSXHVf90Qe9obVlSc8SQk0n5NSWtVZY"
+    const api_key = "85977e055851755123d0bcc6806eabf4"
     // URL
-    const url = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat + "lon="+ lon + "&appid=" + api_key 
-    
+    const url = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longtitude + "&appid=85977e055851755123d0bcc6806eabf4";
 
     // get the current conditons
-    const response = await fetch(url)
+    const response = await fetch(url);
     const data = await response.json(); // returns the conditons
-    alert ("Forecast Ready")
+
+    // Display Current Temperature
+    const temperature = data.main.temp;
+    alert (url)
+    document.getElementById("temp").textContent = `${temperature} Degrees Kelvin`;
+    
+    // Display CUrent Baramentric Pressure
+    const bars = data.main.pressure
+    document.getElementById("press").textContent = `${bars}`;
+          
+    // Display wind speed
+    const wind = data.wind.speed;
+    document.getElementById("win").textContent = `${wind}`;
+
+
+    // Display humidity
+    const hum = data.main.humidity  
+    document.getElementById("hum").textContent = `${hum} Percent`;
+
+    // Display visibility
+    const vis = data.visibility
+    document.getElementById("visa").textContent = `${vis} meters`;
+
+    // Display sunset
+    const set = data.sys.sunset
+    document.getElementById("sunset").textContent = `${set} `;
+
     }
     catch (error) {alert("Error Getting", error);}
 
+   
 
 }
 
