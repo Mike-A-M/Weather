@@ -31,7 +31,9 @@ async function getRandomCatImage() {
       newImage.width = 300;
       newImage.height = 300;
       newImage.style.borderRadius = '20px';
-      newImage.style.opacity = "0.6";
+      newImage.style.opacity = "0.8";
+      newImage.style.margin = '2%';;
+      newImage = "5px 5px 10px 2px rgba(0, 0, 0, 0.5)"; 
     }
 
   } catch (error) {
@@ -57,11 +59,13 @@ async function zipCodeToGlobal () {
     // Render on page
    
     const longtitude = geo.lon;
-    document.getElementById("longitude").textContent = `${longtitude} Degrees`
+    rndLong =  Math.round(longtitude * 1000) / 1000;
+    document.getElementById("longitude").textContent = `${rndLong} Degrees`
     const latititude = geo.lat;
-    document.getElementById("latitude").textContent = `${latititude} Degrees`
+    rndLat = Math.round(latititude * 1000) / 1000;
+    document.getElementById("latitude").textContent = `${rndLat} Degrees`
 
-    pullForcast (latititude, longtitude)
+    pullForcast (latititude, longtitude);
 
 }
 
@@ -85,12 +89,14 @@ async function pullForcast (latitude, longtitude) {
 
     // Display Current Temperature
     const temperature = data.main.temp;
-    alert (url)
-    document.getElementById("temp").textContent = `${temperature} Degrees Kelvin`;
+    let tempFi = ((temperature-273.15) * 9/5 + 32);
+    let rndTempFi = Math.round(tempFi * 10) / 10
+
+    document.getElementById("temp").textContent = `${rndTempFi} Degrees`;
     
     // Display CUrent Baramentric Pressure
     const bars = data.main.pressure
-    document.getElementById("press").textContent = `${bars}`;
+    document.getElementById("press").textContent = `${bars} millibars`;
           
     // Display wind speed
     const wind = data.wind.speed;
@@ -105,9 +111,7 @@ async function pullForcast (latitude, longtitude) {
     const vis = data.visibility
     document.getElementById("visa").textContent = `${vis} meters`;
 
-    // Display sunset
-    const set = data.sys.sunset
-    document.getElementById("sunset").textContent = `${set} `;
+  
 
     }
     catch (error) {alert("Error Getting", error);}
